@@ -28,7 +28,6 @@
 			$this->setDerrotas(0);
 			$this->setEmpates(0);
 			$this->habilidade = ($this->getPeso() * 0.1) + $this->getIdade();
-
 		}
 		//fim do construct.
 
@@ -73,6 +72,7 @@
 		    $peso = $this->peso;
 		    if ($peso < 52.2){
 		    	echo "Peso abaixo do permitido!";
+		    	$this->categoria = "invalido";
 		    }
 		    elseif($peso <=70.3){
 		    	$this->categoria = "Leve";
@@ -85,6 +85,7 @@
 		    }
 		    else{
 				echo "Peso acima do permitido!";
+				$this->categoria = "invalido";
 		    }
 		    //fim testa a faixa de peso.
 		}
@@ -107,7 +108,7 @@
 		public function setEmpates($empates) {
 		    $this->empates = $empates;
 		}
-		private function getHabilidade() {
+		public function getHabilidade() {
 		    return $this->habilidade;
 		}
 		public function setHabilidade($habilidade) {
@@ -149,7 +150,8 @@
 
 		//inico da função treinar
 		public function treinar(){
-
+			$this->setHabilidade($this->getHabilidade() + 1);
+			$this->setPeso($this->getPeso() - 0.5);
 		}
 		//fim da função treinar
 
