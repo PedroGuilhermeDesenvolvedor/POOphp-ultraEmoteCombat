@@ -77,8 +77,6 @@
 				$historicoANT = 0;
 				$historicoADO = 0;
 			}
-
-
 			if (
 				(($habilidadeANT * 0.3) + (rand(0,30) * 0.3) + ($historicoANT * 0.4))
 				<

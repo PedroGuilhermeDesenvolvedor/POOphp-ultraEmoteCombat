@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ultra-Emote-Combat</title>
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="semantic/semantic.js"></script>
+  <script type="text/javascript" src="semantic/components/dropdown.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic/components/dropdown.css">
+  <script type="text/javascript" src="script.js"></script>
+  <meta charset="utf-8" />
+
+
+  <style type="text/css">
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+  </style>
+
+  <script>
+  $(document)
+    .ready(function() {
+
+      //Faz o menu ficar interativo com o mause.
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+      if (CadastarLutador){
+
+      }
+  </script>
+
+
 </head>
 <body>
-	<pre>
-	<?php 
-		require_once "Lutador.php";
-		require_once "Luta.php";
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
 
-		$prettyBoy = new Lutador("Pretty Boy","frança","31","1.75","68.9");
-		print_r($prettyBoy);
-		$pedro = new Lutador("Pedro o Forte","Brasileiro","18","1.60","70");
-		$pedro->treinar();
-
-		echo "\n";
-		echo "\n";
-		echo "\n";
-		echo "\n";
-		echo "\n";
-		print_r($pedro);
-
-		$brigaDeGalo = new Luta();
-
-		$brigaDeGalo->marcarLuta($prettyBoy, $pedro);
-
-		$brigaDeGalo->lutar();
-
-		print_r($brigaDeGalo);
-	 ?>
-	 </pre>
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <div class="left item">
+	        <a class="ui inverted button yellow">Marcar luta</a>
+	        <a class="ui inverted button red">Lutar</a>
+        </div>
+        <div class="right item">
+         	<a href="cadastrarLutador.php" class="ui inverted button green">Cadastar Lutador</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>	
 </body>
+
 </html>
