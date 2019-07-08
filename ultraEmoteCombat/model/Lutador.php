@@ -1,5 +1,5 @@
 <?php 
-	require_once "Controlador.php";
+	require_once "../interfaces/Controlador.php";
 	//inicio da classe lutador
 	class Lutador implements Controlador{
 		//atributos.

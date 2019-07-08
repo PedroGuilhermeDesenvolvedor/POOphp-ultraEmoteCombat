@@ -6,6 +6,7 @@
 		private $desafiante;
 		private $rounds;
 		private $aprovada;
+		private $comentario;
 
 		//Métodos especiais.
 
@@ -38,6 +39,13 @@
 		}
 		private function setAprovada($aprovada) {
 		    $this->aprovada = $aprovada;
+		}
+		public function getComentario() {
+		    return $this->comentario;
+		}
+		 
+		public function setComentario($comentario) {
+		    $this->comentario = $comentario;
 		}
 
 		//Inico métodos.
