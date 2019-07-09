@@ -2,6 +2,7 @@
 	require_once "conexao.php";
 	require_once "Lutador.php";
 	require_once "../interfaces/CRUD.php";	
+	require_once "Lutador.php";
 	//inicio da classe LutadorCRUD.
 	class LutadorCRUD implements CRUD {
 		private $conexao;
@@ -9,8 +10,7 @@
 		public function __construct(){
 			$this->conexao = conexao::getConexao();
 		}
-
-		//inicio da função inset.
+		//inicio da função insert.
 		public function insert(Lutador $lutador){
 			$nome = $lutador->getNome();
 			$nacionalidade = $lutador->getNacionalidade();
@@ -20,11 +20,12 @@
 			$peso = $lutador->getPeso();
 			$categoria = $lutador->getCategoria();
 			$habilidade = $lutador->getHabilidade();
+			$apelido = $lutador->getApelido();
 
 			$sql = "INSERT INTO 
 					`lutador`
 					VALUES 
-					(DEFAULT,'$nacionalidade','$nascimento',$altura,$peso,'$categoria',DEFAULT, DEFAULT,DEFAULT,$habilidade,'$nome')";
+					(DEFAULT,'$nacionalidade','$nascimento',$altura,$peso,'$categoria',DEFAULT, DEFAULT,DEFAULT,$habilidade,'$nome','$apelido')";
 			$this->conexao->exec($sql);
 		}
 		//fim da função insert.

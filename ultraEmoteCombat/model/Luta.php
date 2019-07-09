@@ -7,6 +7,7 @@
 		private $rounds;
 		private $aprovada;
 		private $comentario;
+		private $ganhador;
 
 		//Métodos especiais.
 
@@ -46,6 +47,13 @@
 		 
 		public function setComentario($comentario) {
 		    $this->comentario = $comentario;
+		}
+		public function getGanhador() {
+		    return $this->ganhador;
+		}
+		 
+		public function setGanhador($ganhador) {
+		    $this->ganhador = $ganhador;
 		}
 
 		//Inico métodos.

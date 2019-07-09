@@ -7,6 +7,7 @@
 		AND isset($_POST["nascimento"]) 
 		AND isset($_POST["altura"]) 
 		AND isset($_POST["peso"])
+		AND isset($_POST["apelido"])
 	)
 	//fim da verificação isset.
 
@@ -20,6 +21,8 @@
 			AND !is_null($_POST["nascimento"]) 
 			AND !is_null($_POST["altura"]) 
 			AND !is_null($_POST["peso"])
+			AND !is_null($_POST["apelido"])
+
 		)
 		//fim da verificação in_null.
 
@@ -34,6 +37,7 @@
 				AND !empty($_POST["nascimento"]) 
 				AND !empty($_POST["altura"]) 
 				AND !empty($_POST["peso"])
+				AND !empty($_POST["apelido"])
 			//fim da verificação impty.
 			)	
 
@@ -44,10 +48,10 @@
 					$_POST["nacionalidade"],
 					$_POST["nascimento"],
 					$_POST["altura"],
-					$_POST["peso"]
+					$_POST["peso"],
+					$_POST["apelido"]
 				);
 				$LutadorCRUID = new LutadorCRUD();
-				var_dump($lutador);
 				$LutadorCRUID->insert($lutador);
 				 header("location: ../view/index.php?acao=sucessoCadastroLutador");
 			}

@@ -13,11 +13,12 @@
 		private $derrotas;
 		private $empates;
 		private $habilidade;
+		private $apelido;
 
 		//MÉTODOS ESPECIAIS.
 
 		//inicio do construct.
-		public function __construct ($nome,$nacionalidade,$nascimento,$altura,$peso){
+		public function __construct ($nome,$nacionalidade,$nascimento,$altura,$peso,$apelido){
 			$this->setNome($nome);
 			$this->setNacionalidade($nacionalidade);
 			$this->setNascimento($nascimento);
@@ -27,6 +28,7 @@
 			$this->setVitorias(0);
 			$this->setDerrotas(0);
 			$this->setEmpates(0);
+			$this->setApelido($apelido);
 
 			$this->habilidade = ($this->getPeso() * 0.1) + $this->getIdade();
 		}
@@ -72,7 +74,6 @@
 			//inico testa a faixa de peso.
 		    $peso = $this->peso;
 		    if ($peso < 52.2){
-		    	echo "Peso abaixo do permitido!";
 		    	$this->categoria = "invalido";
 		    }
 		    elseif($peso <=70.3){
@@ -85,7 +86,6 @@
 		    	$this->categoria = "P";
 		    }
 		    else{
-				echo "Peso acima do permitido!";
 				$this->categoria = "invalido";
 		    }
 		    //fim testa a faixa de peso.
@@ -114,6 +114,13 @@
 		}
 		public function setHabilidade($habilidade) {
 		    $this->habilidade = $habilidade;
+		}
+		public function getApelido() {
+		    return $this->apelido;
+		}
+		 
+		public function setApelido($apelido) {
+		    $this->apelido = $apelido;
 		}
 
 		//inicio dos metodos da interface.

@@ -2,7 +2,7 @@
 class conexao {
 
     const HOST      = "localhost";
-    const NOMEBANCO = "bancobriga";
+    const NOMEBANCO = "banco";
     const USUARIO   = "root";
     const SENHA     = "";
     public static $conexao = null;

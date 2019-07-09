@@ -14,10 +14,30 @@
       padding: 1em 0em;
     }
   </style>
+
+  <script>
+  $(document)
+    .ready(function() {
+
+      //Faz o menu ficar interativo com o mause.
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+  </script>
 </head>
-<body>
-  <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
+<body>  
+   <div class="ui inverted vertical masthead center aligned segment">
+      <?php 
+  include ("menu.php");
+   ?>
       <form name="form" action="../controller/cadastramentoBanco.php" method="post" class="ui form segment" onSubmit="return validar(); ">
         <div class="ui pointing red basic label">
           Cadastre o seu lutador!
@@ -36,14 +56,18 @@
             <input id="nascimento" name="nascimento" type="date">
           </div>
         </div>
-        <div class="two fields">
+        <div class="three fields">
           <div class=" field">
             <label>Altura</label>
             <input id="altura" type="number" step="0.01" name="altura">
           </div>
           <div class=" field">
-            <label>peso</label>
+            <label>Peso</label>
             <input id="peso" type="number" name="peso">
+          </div>
+          <div class=" field">
+            <label>Apelido</label>
+            <input id="apelido" type="text" name="apelido">
           </div>
         </div>
         <div class=" field">
@@ -52,45 +76,56 @@
           Cadastrar Campeão
         </button>
       </form>
-    </div>
-  </div>	
-
+  </div>
   <script type="text/javascript">
     function validar() {     
-        var nome = document.getElementById("nome");
-        var nacionalidade = document.getElementById("nacionalidade");
-        var nascimento = document.getElementById("nascimento");
-        var altura = document.getElementById("altura");
-        var peso = document.getElementById("peso");
-     
+      var nome = document.getElementById("nome");
+      var nacionalidade = document.getElementById("nacionalidade");
+      var nascimento = document.getElementById("nascimento");
+      var altura = document.getElementById("altura");
+      var peso = document.getElementById("peso");
+      var apelido = document.getElementById("apelido");
+
+        //inicio da verificação para saber se é NULL.
         if (nome.value == "") {
-            alert('Nome deve estar preenchido!');
-            document.form.nome.focus();
-            return false;
+          alert('Nome deve estar preenchido!');
+          document.form.nome.focus();
+          return false;
+        }
+        if (apelido.value == "") {
+          alert('Apelido deve estar preenchido!');
+          document.form.nome.focus();
+          return false;
         }
         if (nacionalidade.value == "") {
-            alert('nacionalidade deve estar preenchida!');
-            document.form.nacionalidade.focus();
-            return false;
+          alert('nacionalidade deve estar preenchida!');
+          document.form.nacionalidade.focus();
+          return false;
         }
         if (nascimento.value == "") {
-            alert('Data de nascimento deve estar preenchido!');
-            document.form.nascimento.focus();
-            return false;
+          alert('Data de nascimento deve estar preenchido!');
+          document.form.nascimento.focus();
+          return false;
         }
         if (altura.value == "") {
-            alert('Altura deve estar preenchido!');
-            document.form.altura.focus();
-            return false;
+          alert('Altura deve estar preenchido!');
+          document.form.altura.focus();
+          return false;
         }
         if (peso.value == "") {
-            alert('Peso deve estar preenchido!');
-            document.form.peso.focus();
-            return false;
+          alert('Peso deve estar preenchido!');
+          document.form.peso.focus();
+          return false;
         }
-     
-    }
+        //Fim da verificação para saber se é NULL.
 
-
-  </script>
+        //inico da verificação para saber se esta no tamanho correto.
+        if (apelido.value.length >= 10) {
+          alert('Apelido deve ter menos de 10 caracteres!');
+          document.form.nome.focus();
+          return false;
+        }
+        //fim da verificação para saber se esta no tamanho correto.
+        }
+</script>
 </html>
