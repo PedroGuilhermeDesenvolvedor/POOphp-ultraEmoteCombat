@@ -2,7 +2,6 @@
 	require_once "conexao.php";
 	require_once "Lutador.php";
 	require_once "../interfaces/CRUD.php";	
-	require_once "Lutador.php";
 	//inicio da classe LutadorCRUD.
 	class LutadorCRUD implements CRUD {
 		private $conexao;
@@ -11,7 +10,7 @@
 			$this->conexao = conexao::getConexao();
 		}
 		//inicio da função insert.
-		public function insert(Lutador $lutador){
+		public function insert($lutador){
 			$nome = $lutador->getNome();
 			$nacionalidade = $lutador->getNacionalidade();
 			$nascimento = $lutador->getNascimento();
@@ -23,16 +22,19 @@
 			$apelido = $lutador->getApelido();
 
 			$sql = "INSERT INTO 
-					`lutador`
-					VALUES 
-					(DEFAULT,'$nacionalidade','$nascimento',$altura,$peso,'$categoria',DEFAULT, DEFAULT,DEFAULT,$habilidade,'$nome','$apelido')";
+			`lutador`
+			VALUES 
+			(DEFAULT,'$nacionalidade','$nascimento',$altura,$peso,'$categoria',DEFAULT, DEFAULT,DEFAULT,$habilidade,'$nome','$apelido')";
 			$this->conexao->exec($sql);
 		}
 		//fim da função insert.
 
 		//inicio da  função get.
 		public function get($id){
-
+			$consulta = $this->conexao->prepare("select * froam lutador where id = $id");
+			$consulta->execute();
+			$linha = $consulta->fetch(PDO::FETCH_ASSOC);
+			var_dump($linha);
 		}
 		//fim da função get.
 

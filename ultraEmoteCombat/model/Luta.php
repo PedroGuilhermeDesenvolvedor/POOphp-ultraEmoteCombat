@@ -5,15 +5,15 @@
 		private $desafiado;
 		private $desafiante;
 		private $rounds;
-		private $aprovada;
 		private $comentario;
 		private $ganhador;
 
 		//Métodos especiais.
 
 		//inicio da função construct.
-		public function __construct(){
-			$aprovada = false;
+		public function __construct($desafiante, $desafiado){
+			$this->setDesafiante($desafiante);
+			$this->setDesafiado($desafiado);
 		}
 		//fim da função construct.
 
@@ -35,12 +35,6 @@
 		private function setRounds($rounds) {
 		    $this->rounds = $rounds;
 		}
-		public function getAprovada() {
-		    return $this->aprovada;
-		}
-		private function setAprovada($aprovada) {
-		    $this->aprovada = $aprovada;
-		}
 		public function getComentario() {
 		    return $this->comentario;
 		}
@@ -60,12 +54,10 @@
 
 		//inicio da função marcarLuta.
 		public function marcarLuta(Lutador $desafiante, Lutador $desafiado){
-
 			if ($desafiante->getCategoria() == $desafiado->getCategoria() AND $desafiado != $desafiante){
 				if ($desafiado->getPeso() != "invalido"){
 					$this->setDesafiante($desafiante);
 					$this->setDesafiado($desafiado);
-					$this->setAprovada(true);
 				}
 				else {
 					echo "Algum lutador está com o peso invalido! Luta não pode acontecer";
