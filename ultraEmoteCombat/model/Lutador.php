@@ -154,7 +154,7 @@
 
 		//inicio da função perderluta.
 		public function perderLuta(){
-			$this->setVitorias($this->getVitorias() - 1);
+			$this->setDerrotas($this->getDerrotas() + 1);
 		}
 		//fim da função perderluta.
 

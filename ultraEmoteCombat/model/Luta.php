@@ -11,7 +11,7 @@
 		//Métodos especiais.
 
 		//inicio da função construct.
-		public function __construct($desafiante, $desafiado){
+		public function __construct(Lutador $desafiante,Lutador $desafiado){
 			$this->setDesafiante($desafiante);
 			$this->setDesafiado($desafiado);
 		}
@@ -91,6 +91,8 @@
 				(($habilidadeADO * 0.3) + (rand(0,30) * 0.3) + ($historicoADO * 0.4))
 			){
 				$this->desafiante->ganharLuta();
+				$this->setGanhador($this->desafiante);
+				$this->desafiado->perderLuta();
 			}
 			elseif(
 				(($habilidadeANT * 0.3) + (rand(0,30) * 0.3) + ($historicoANT * 0.4))
@@ -98,9 +100,12 @@
 				(($habilidadeADO * 0.3) + (rand(0,30) * 0.3) + ($historicoADO * 0.4))
 			){
 				$this->desafiado->ganharLuta();
+				$this->setGanhador($this->desafiado);
+				$this->desafiante->perderLuta();
 			}
 			else {
 				$this->desafiante->empatarLuta();
+				$this->setGanhador(null);
 				$this->desafiado->empatarLuta();
 			}
 		}

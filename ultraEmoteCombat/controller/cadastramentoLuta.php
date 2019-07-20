@@ -14,7 +14,7 @@
 	$desafiado = $_POST['desafiado'];
 
 	$lutaCRUD = new lutaCRUD();
-	$luta = new Luta ($desafiante,$desafiado);
+	$luta = new Luta($desafiante, $desafiado);
 
 
 	$lutaCRUD->insert($luta);

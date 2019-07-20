@@ -31,10 +31,10 @@
 
 		//inicio da  função get.
 		public function get($id){
-			$consulta = $this->conexao->prepare("select * froam lutador where id = $id");
+			$consulta = $this->conexao->prepare("select * from lutador where id = $id");
 			$consulta->execute();
 			$linha = $consulta->fetch(PDO::FETCH_ASSOC);
-			var_dump($linha);
+			return $linha;
 		}
 		//fim da função get.
 

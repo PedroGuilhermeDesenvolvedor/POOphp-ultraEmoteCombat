@@ -9,42 +9,13 @@
     <link rel="stylesheet" type="text/css" href="semantic/components/dropdown.css">
     <script type="text/javascript" src="script.js"></script>
     <meta charset="utf-8" />
+    <script type="text/javascript" src="script.js"></script>
     <style type="text/css">
-      #tabelaLutar {
-
-      }
       .masthead.segment {
         min-height: 700px;
         padding: 1em 0em;
-      }
+      } 
     </style>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#formularioLutador').css("display","none")
-        $('#formularioLuta').css("display","none")
-
-        $('#cadastraLutador').click(function(){
-            $('#formularioLuta').css("display","none")
-            $('#tabelaLutar').css("display","none")
-            $('#formularioLutador').css("display","block")
-            $('#formularioLutador').appendTo('#menuEcorpo');
-          });
-        $('#marcarLuta').click(function(){
-            $('#formularioLutador').css("display","none")
-            $('#tabelaLutar').css("display","none")
-            $('#formularioLuta').css("display","block")
-            $('#formularioLuta').appendTo('#menuEcorpo');
-          });
-        $('#lutar').click(function(){
-            $.post('../controller/controleLutar.php', function (retorna) {
-              $("#guardaLutar").html(retorna);
-
-            });
-            $('#formularioLutador').css("display","none")
-            $('#formularioLuta').css("display","none")
-          });
-      });
-    </script>
   </head> 
   <body>
     <div id="menuEcorpo" class="ui inverted vertical masthead center aligned segment">
@@ -62,67 +33,12 @@
           </div>
         </div>
       </div> 
-      <div id="guardaLutar">
-        
-
+      <div id="corpoIndex">
       </div>
     </div>
   </body>
   </html>
   </div>
-  <form id="formularioLuta" action="../controller/cadastramentoLuta.php" method="post" class="ui form segment">
-    <div class="ui pointing red basic label">
-      Marque a sua luta!
-    </div>
-    <div class=" field">
-      <label for="nome">Desafiado: </label>
-      <input type=text name="desafiado" required=nome/>
-    </div>
-    <div class=" field">
-      <label for="nome">Desafiante</label>
-      <input type="text" name="desafiante" required="nome">
-    </div>
-    <button type="submit" class="ui button green">
-      Marcar luta!
-    </button>
-  </form>
-
-  <form id="formularioLutador" action="../controller/cadastramentoBanco.php" method="post" class="ui form segment">
-    <div class="ui pointing red basic label">
-      Cadastre o seu lutador!
-    </div>
-    <div class="three fields">
-      <div class=" field">
-        <label for="nome">Nome</label>
-        <input id="nome" name="nome" type="text" required="nome">
-      </div>
-      <div class=" field">
-        <label for="nome">Nacionalidade</label>
-        <input id="nacionalidade" name="nacionalidade" type="text" required="nome">
-      </div>
-      <div class=" field">
-        <label for="date">Data De Nascimento</label>
-        <input id="nascimento" name="nascimento" type="date" required="date">
-      </div>
-    </div>
-    <div class="three fields">
-      <div class=" field">
-        <label for="number">Altura</label>
-        <input id="altura" type="number" step="0.01" name="altura" required="number">
-      </div>
-      <div class=" field">
-        <label for="number">Peso</label>
-        <input id="peso" type="number" name="peso" required="number">
-      </div>
-      <div class=" field">
-        <label for="nome">Apelido</label>
-        <input id="apelido" type="text" name="apelido" required="nome">
-      </div>
-    </div>
-    <button type="submit" class="ui button green">
-      Cadastrar Campeão
-    </button>
-  </form>
 </html>
 
 
