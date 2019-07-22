@@ -3,7 +3,7 @@
 	require_once "../model/lutaCRUD.php";
 	require_once "../model/Lutador.php";
 	require_once "../model/LutadorCRUD.php";
-
+	
 	$lutaCRUD = new lutaCRUD();
 	$luta = $lutaCRUD->get($_GET['lutar']);
 
@@ -23,6 +23,19 @@
 	$luta = new Luta($desafiante, $desafiado);
 
 	$luta->lutar();
+	//update ganhador
+	$lutadorCRUD->update($desafiante,$idDesafiante);
+	$lutadorCRUD->update($desafiado,$idDesafiado);
+
+	$empates = $luta->getGanhador();
+	if ($desafiante->getEmpates() == $empates->getEmpates()){
+		echo "não empatou";
+
+	}
+	else{
+		echo "empatou";
+	}
+
 
 
 
@@ -31,3 +44,16 @@
 
 	
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<pre>
+		
+		<?php 	print_r($luta); ?>
+	</pre>
+
+</body>
+</html>

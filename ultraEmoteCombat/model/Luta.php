@@ -11,7 +11,7 @@
 		//Métodos especiais.
 
 		//inicio da função construct.
-		public function __construct(Lutador $desafiante,Lutador $desafiado){
+		public function __construct($desafiante,$desafiado){
 			$this->setDesafiante($desafiante);
 			$this->setDesafiado($desafiado);
 		}

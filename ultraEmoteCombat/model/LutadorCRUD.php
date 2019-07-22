@@ -45,8 +45,12 @@
 		//fim da função getAll.
 
 		//inicio da função update.
-		public function update ($id){
+		public function update ($lutador,$id){	
+			$sql = "update lutador set 
+            vitorias = '".$lutador->getVitorias()."', derrotas = '".$lutador->getDerrotas()."',empates = '".$lutador->getEmpates()."'
+            where id = ".$id;
 
+            $this->conexao->exec($sql);
 		}
 		//fim da função update.
 

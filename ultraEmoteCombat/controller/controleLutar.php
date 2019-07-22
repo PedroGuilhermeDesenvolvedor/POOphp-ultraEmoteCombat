@@ -2,6 +2,7 @@
 	require_once "../model/lutaCRUD.php";
 	$lutaCRUD = new lutaCRUD();
 	$nomes = $lutaCRUD->getLutasMarcadas();
+  $contador = count($nomes['desafiantes']);
  
 
  ?>
@@ -33,16 +34,17 @@
       <a class="ui grey massive label">Lutas Marcadas</a>
     <table class="ui selectable inverted table">
       <tbody>
-        <tr>
-          <td><?php echo $nomes['desafiantes'][0]; ?></td>
-          <td><?php echo $nomes['desafiados'][0]; ?></td>
-          <td class="right aligned"><a class="ui red button" href="../controller/lutar.php?lutar=3">Lutar</a></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td class="right aligned"><a class="ui red button">Lutar</a></td>
-        </tr>
+        <?php 
+          for ($i=0; $i < $contador; $i++) { 
+        ?>
+          <tr>
+            <td><?php echo $nomes['desafiantes'][$i]; ?></td>
+            <td><?php echo $nomes['desafiados'][$i]; ?></td>
+            <td class="right aligned"><a class="ui red button" href="../controller/lutar.php?lutar=<?php echo $nomes['id'][$i]; ?>">Lutar</a></td>
+          </tr>
+        <?php 
+          }
+         ?>
       </tbody>
     </table>
   </div>

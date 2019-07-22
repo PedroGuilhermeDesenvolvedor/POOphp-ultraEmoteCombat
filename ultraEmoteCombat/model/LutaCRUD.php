@@ -33,24 +33,6 @@
 		}
 		//fim da função get.
 
-		public function getDesafiados(){
-			$consulta = $this->conexao->prepare("SELECT lutador.nome from lutador, luta where lutador.id = luta.desafiado order by luta.id");
-			$consulta->execute();
-			$linha = $consulta->fetchall(PDO::FETCH_ASSOC);
-			return $linha;	
-		}
-		public function getDesafiantes(){
-			$consulta = $this->conexao->prepare("SELECT lutador.nome from lutador, luta where lutador.id = luta.desafiante order by luta.id ");
-			$consulta->execute();
-			$linha = $consulta->fetchall(PDO::FETCH_ASSOC);
-			return $linha;	
-		}
-		public function getIdLutas (){
-			$consulta = $this->conexao->prepare("select luta.id from luta, lutador where lutador.id = luta.desafiante order by luta.id");
-			$consulta->execute();
-			$linha = $consulta->fetchall(PDO::FETCH_ASSOC);
-			return $linha;			
-		}
 		public function getLutasMarcadas (){
 			$desafiantes = array();
 			$desafiados = array();
@@ -62,12 +44,12 @@
 			$linha = $consulta->fetchall(PDO::FETCH_ASSOC);
 			$contador = count($linha);	
 			for ($i = 0; $i < $contador;$i++){
-				if ($linha[$i]['ganhador'] == null){
-					
+				if ($linha[$i]['ganhador'] != null){
 				}
 				else {
 					$desafiantes[] = $linha[$i]['desafiante'];
 					$desafiados[]  = $linha[$i]['desafiado'];
+					$id[]          = $linha[$i]['id'];
 				}	
 			}
 			$historico[0] = $desafiantes;
@@ -95,9 +77,10 @@
 			$linha = $consulta->fetchall(PDO::FETCH_ASSOC);
 			$nomesDesafiantes[] = $linha[0]['nome'];
 			}
-			$resultado['desafiados'] = $nomesDesafiados;
+			$resultado['desafiados']  = $nomesDesafiados;
 			$resultado['desafiantes'] = $nomesDesafiantes;
-			
+			$resultado['id']		  = $id;
+
 			return $resultado;
 	
 		}
@@ -114,7 +97,12 @@
 		//fim da função getAll.
 
 		//inicio da função update.
-		public function update ($id){
+		public function update ($idGanhador,$idLuta){
+			$sql = "update luta set 
+            ganhador = '".$idGanhador."'
+            where id = ".$id;
+
+            $this->conexao->exec($sql);
 
 		}
 		//fim da função update.
