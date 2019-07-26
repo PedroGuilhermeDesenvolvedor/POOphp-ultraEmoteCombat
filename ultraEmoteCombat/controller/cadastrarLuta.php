@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<pre>
-	
 <?php 
 	require_once "../model/lutaCRUD.php";
 	require_once "../model/Luta.php";
@@ -18,7 +10,7 @@
 
 
 	$lutaCRUD->insert($luta);
-	header("location: ../view/index.php?acao=sucessoCadastroLuta");
+	header("location: ../view/index.php");
 ?>
 </pre>
 </body>

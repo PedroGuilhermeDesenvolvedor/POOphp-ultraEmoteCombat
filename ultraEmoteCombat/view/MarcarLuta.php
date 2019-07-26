@@ -4,7 +4,7 @@
     <p></p>
   </div>
   <div class="column">
-    <form id="formularioLuta" action="../controller/cadastramentoLuta.php" method="post" class="ui form segment">
+    <form id="formularioLuta" action="../controller/cadastrarLuta.php" method="post" class="ui form segment">
       <div class="ui pointing red basic label">
         Marque a sua luta!
       </div>

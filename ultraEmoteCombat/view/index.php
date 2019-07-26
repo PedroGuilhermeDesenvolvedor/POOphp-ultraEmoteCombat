@@ -24,7 +24,7 @@
             <div class="ui large secondary inverted pointing menu">
             <div class="left item">
               <a href="index.php" class="ui inverted button withe">Página Inicial</a>
-              <a  id="marcarLuta" class="ui inverted button yellow">Marcar luta</a>
+              <a id="marcarLuta" class="ui inverted button yellow">Marcar luta</a>
               <a id="lutar" class="ui inverted button red">Lutar</a>
             </div>
             <div class="right item">

@@ -10,5 +10,5 @@
 	);
 	$LutadorCRUID = new LutadorCRUD();
 	$LutadorCRUID->insert($lutador);
-	header("location: ../view/index.php?acao=sucessoCadastroLutador");
+	header("location: ../view/index.php?");
 ?>

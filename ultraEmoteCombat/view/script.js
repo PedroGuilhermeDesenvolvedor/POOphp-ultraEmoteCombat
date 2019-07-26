@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('#formularioLuta').css("display","none")
 
   $('#cadastraLutador').click(function(){
-      $.post('CadastrarLutador.php', function (retorna) {
+      $.post('cadastrarLutador.php', function (retorna) {
         $("#corpoIndex").html(retorna);
 
       });

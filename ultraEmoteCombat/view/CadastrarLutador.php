@@ -1,4 +1,4 @@
-<form id="formularioLutador" action="../controller/cadastramentoBanco.php" method="post" class="ui form segment">
+<form id="formularioLutador" action="../controller/cadastrarLutador.php" method="post" class="ui form segment">
   <div class="ui pointing red basic label">
     Cadastre o seu lutador!
   </div>  

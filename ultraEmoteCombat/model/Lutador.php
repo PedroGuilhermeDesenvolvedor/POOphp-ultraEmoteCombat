@@ -3,6 +3,7 @@
 	//inicio da classe lutador
 	class Lutador implements Controlador{
 		//atributos.
+		private $id;
 		private $nome;
 		private $nacionalidade;
 		private $nascimento;
@@ -35,6 +36,13 @@
 		//fim do construct.
 
 		//inicio dos getters e setters.
+		public function getId() {
+		    return $this->id;
+		}
+		 
+		public function setId($id) {
+		    $this->id = $id;
+		}
 		public function getNome() {
 		    return $this->nome;
 		}
@@ -131,21 +139,7 @@
 			$anoAtual = date('Y');
 			$idade = $anoAtual - $nascimento[0];
 			return $idade;
-					
 			}
-
-		//inicio da função apresentar.
-		public function apresentar(){
-			echo "E agora... Diratamente do ". $this->getNacionalidade() . " pesando " . $this->getPeso() . " kilos, com ". $this->getVitorias() . " vitórias e " . $this->getDerrotas() . " derrotas. Na categoria " . $this->getCategoria() . " 	com " . $this->getIdade() . " anos. ELEEEE " . $this->getNome();
-		}
-		//fim da função apresentar.
-
-		//inicio da função status.
-		public function status(){
-			echo "O lutador " . $this->getNome() . "ganhou " . $this->getVitorias() . "lutas, perdeu " . $this->getDerrotas() . " e empatou " . $this->getEmpates() . " lutas."; 
-		}
-		//fim da função status.
-
 		//inicio da função ganharLuta.
 		public function ganharLuta(){
 			$this->setVitorias($this->getVitorias() + 1);

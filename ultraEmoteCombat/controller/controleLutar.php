@@ -3,8 +3,6 @@
 	$lutaCRUD = new lutaCRUD();
 	$nomes = $lutaCRUD->getLutasMarcadas();
   $contador = count($nomes['desafiantes']);
- 
-
  ?>
 <div id="tabelaLutar" class="ui two column grid container">
   <div class="column">

@@ -100,8 +100,7 @@
 		public function update ($idGanhador,$idLuta){
 			$sql = "update luta set 
             ganhador = '".$idGanhador."'
-            where id = ".$id;
-
+            where id = ".$idLuta;
             $this->conexao->exec($sql);
 
 		}
